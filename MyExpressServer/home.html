@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"/> -->
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>This is home page</h1>
+    <a href="/login">Login</a>
+    <button id="sendBtn">GetData</button>
+    <button>SendData</button>
+    <div id="result">
+
+    </div>
+    <script>
+        let sendButton=document.querySelector('#sendBtn');
+        let result=document.querySelector('#result')
+        sendButton.addEventListener('click',()=>{
+            result.innerHTML=''
+            fetch('/getData')
+            .then(res=>res.json())
+            .then(data=>{
+                for(let  val in data){
+                    result.innerHTML+=`<li>${val}:${data[val]}</li>`
+                }
+            })
+        })
+        
+    </script>
+</body>
+</html>

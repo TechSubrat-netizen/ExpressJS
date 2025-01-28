@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Login Page</h1>
+   <fieldset>
+    <legend>
+        <form action="" id="form">
+            <label for="">FName:</label>
+            <input type="text" value="" id="fname">
+            <label for="">LName:</label>
+            <input type="text" value="" id="lname">
+            <label for="">PhoneNumber:</label>
+            <input type="number" value="" id="number">
+            <label for="">Email:</label>
+            <input type="email" value="" id="email">
+            <button>Submit</button>
+        </form>
+    </legend>
+   </fieldset>
+   <script>
+    let form=document.querySelector('#form');
+    let Fname=document.querySelector('#fname');
+        let Lname=document.querySelector('#lname');
+        let PhNumber=document.querySelector('#number');
+        let Email=document.querySelector('#email')
+    form.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        let obj={}
+        obj.fname=Fname.value
+        obj.Lname=Lname.value
+        obj.number=PhNumber.value
+        obj.Email=Email.value
+        console.log(obj);
+        fetch('/login',{
+            method:"POST",
+            headers:{"content-type":"application/json"},
+            body:JSON.stringify(obj)
+        })
+        
+    })
+   </script>
+   
+    
+</body>
+</html>

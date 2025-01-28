@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is Home page</h1>
+    <!-- <img src="Crypto.jpeg" alt=""> -->
+    <a href="/Pages/about.html">About Page</a>
+    <button id="sendbtn">Send Data</button>
+    <button id="getbtn">Get Data</button>
+    <form action="/urlData" method="post">   <!-- Post method with  url Data -->
+        <label for="name">Name</label>
+        <input type="text" value="" name="name">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script >
+        let sendBtn=document.querySelector('#sendbtn')
+        let getBtn = document.querySelector('#getbtn');
+        //get data from server
+        getBtn.addEventListener('click',()=>{
+            fetch('/data')
+            .then(res=>res.json())
+            .then(data=>console.log(data))
+            .catch(console.log)
+        })
+        // send Data toserver
+        sendBtn.addEventListener('click',async()=>{//async function
+            let myData={msg:"hello From Client"}//Data to be sendt to the server
+            let response =await fetch('/data',{
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(myData)
+
+            })
+            let data=await response.json()
+        })
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- partial file included -->
+   <%- include("partials/Header.ejs")%>
+   <!-- Using  The properties coming from server -->
+   <h2>
+    Name:<%=name%>
+   </h2>
+   <h2>
+    Age:<%=Age%>
+   </h2>
+   <!-- Conditions -->
+    <%if(Age>18){%>
+        <mark>
+            <%=name%> is eligible for vote
+        </mark>
+        <%}%>
+
+    <!-- Looping -->
+     <%for(let i=0;i<=5;i++){%>
+        <%=i%>
+        <%}%>
+    <!-- Methods -->
+     <h1>
+      reverse of name:  <%=name .split("").reverse("").join("")%>
+     </h1>
+     <!-- Navigation From One page to another -->
+      <a href="/about">About</a>
+      <a href="/login">Login</a>
+</body>
+</html>
