@@ -16,10 +16,10 @@ app.get('/',(req,res)=>{
  )
  .catch(err=>console.log("db connection error",err))
  //Connecting to a collection
- //Declaring  Schema
+ //Declaring  Schema validation for collection
  const userSchema= new mongoose.Schema({
         name:String,//Datatypes
-        email:{type:String,required:true,unique:true},//Multiple types
+        email:{type:String,required:true,unique:true},//Multiple properties
         age:{type:Number},
         gender:{type:String,enum:["Male","Female"]},
         address:{

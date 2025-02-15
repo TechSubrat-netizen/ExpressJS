@@ -9,6 +9,7 @@ A basic Express server with MongoDB connection using Mongoose, featuring a User 
 - User schema with validation rules
 - Ready-to-use API structure
 - ES Module support
+- CRUD operation in MongoDB
 
 ## Prerequisites
 
