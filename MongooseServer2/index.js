@@ -4,11 +4,17 @@ import connectDb  from './config/db.js'
 import userRoutes from './Routes/userRouter.js';
 import productRouter from './Routes/productRouter.js';
 import cookieParser from 'cookie-parser';
+import {config} from 'dotenv'
 const app=express()
 
 //Middlewares
 app.use(express.json())//Json parser
 app.use(cookieParser())//CookieParser
+
+//dotenv config
+config()
+//accesing the .env variable
+// console.log(process.env.MY_VAR)
 
 //API's
 app.get('/',(req,res)=>{

@@ -74,8 +74,8 @@ export  const updateUser=async (req,res)=>{
     try {
         // const {email}=req.query
         // const isUser=await User.findOne({email})
-        const {id}=req//id coming from previous midddle ware
-        let isUser=await User.findByID(id)//find the document by using is
+        const {_id}=req//id coming from previous midddle ware
+        let isUser=await User.findByID(_id)//find the document by using is
         if(isUser){
             await User.updateOne({email},{$set:{...req.body}})
             res.status(200).send({message:"user details update"})

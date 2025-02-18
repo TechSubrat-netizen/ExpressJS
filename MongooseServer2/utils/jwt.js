@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken'
- const secretKey="subu@123"
+import { config } from 'dotenv'
+config()
+ const secretKey=process.env.SECRET_KEY||"your key"
 
  //Generate token
 export const generateToken= async (data,expiresTime)=>{
